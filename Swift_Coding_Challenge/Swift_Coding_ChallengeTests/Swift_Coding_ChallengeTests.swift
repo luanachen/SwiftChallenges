@@ -12,7 +12,7 @@ class Swift_Coding_ChallengeTests: XCTestCase {
 
     // ------- STRINGS ------- //
 
-    // UNIQUE LETTERS
+    // 1 - UNIQUE LETTERS
     func test_uniqueLetters() {
         XCTAssertTrue(Challenges.hasUniqueLetters("no duplicates"))
         XCTAssertTrue(Challenges.hasUniqueLetters("abcdefghijklmnopqrstuvwxyz"))
@@ -27,12 +27,30 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertFalse(Challenges.hasUniqueLettersWithSet("Hello, world"))
     }
 
-    // PALINDROME
+    // 2 - PALINDROME
     func test_isPalindrome() {
         XCTAssertTrue(Challenges.isPalindrome("rotator"))
         XCTAssertTrue(Challenges.isPalindrome("Rats live on no evil star"))
         XCTAssertFalse(Challenges.isPalindrome("Never odd or even"))
         XCTAssertFalse(Challenges.isPalindrome("Hello, world"))
+    }
+
+    // 3 - Do two strings contain the same characters?
+    func test_hasSameChars() {
+        XCTAssertTrue(Challenges.hasSameChars("abca", "abca"))
+        XCTAssertTrue(Challenges.hasSameChars("abc", "cba"))
+        XCTAssertTrue(Challenges.hasSameChars("a1 b2", "b1 a2"))
+        XCTAssertFalse(Challenges.hasSameChars("abc", "abca"))
+        XCTAssertFalse(Challenges.hasSameChars("abc", "Abc"))
+        XCTAssertFalse(Challenges.hasSameChars("abc", "cbAa"))
+    }
+
+    // 4 - Does one string contain another?
+
+    func test_fuzzContains() {
+        XCTAssertTrue("Hello, world".fuzzyContains("Hello"))
+        XCTAssertTrue("Hello, world".fuzzyContains("WORLD"))
+        XCTAssertFalse("Hello, world".fuzzyContains("Goodbye"))
     }
 
 }
