@@ -53,12 +53,25 @@ extension String {
 
 }
 
-// 5 - Count the characters
 extension Challenges {
+    
+    // 5 - Count the characters
     static func countChar(_ char: Character, in string: String) -> Int {
         return string.filter { $0 == char }.count
         // alternative:
         // string.reduce(0) { $1 == char ? $0 + 1 : $0 }
+    }
+    
+    // 6 - Remove duplicate letters from a string
+    static func removeDuplicate(_ str: String) -> String {
+        var result = [Character]()
+
+        for char in str {
+            if !result.contains(char) {
+                result.append(char)
+            }
+        }
+        return String(result)
     }
 }
 
