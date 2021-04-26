@@ -53,6 +53,16 @@ extension String {
 
 }
 
+// 5 - Count the characters
+extension Challenges {
+    static func countChar(_ char: Character, in string: String) -> Int {
+        return string.filter { $0 == char }.count
+        // alternative:
+        // string.reduce(0) { $1 == char ? $0 + 1 : $0 }
+    }
+}
+
+
     //-----------------------------------------------------------------//
 
 

@@ -46,11 +46,18 @@ class Swift_Coding_ChallengeTests: XCTestCase {
     }
 
     // 4 - Does one string contain another?
-
     func test_fuzzContains() {
         XCTAssertTrue("Hello, world".fuzzyContains("Hello"))
         XCTAssertTrue("Hello, world".fuzzyContains("WORLD"))
         XCTAssertFalse("Hello, world".fuzzyContains("Goodbye"))
+    }
+
+    // 5 - Count the characters
+    func test_countChar() {
+        XCTAssertEqual(Challenges.countChar("a", in: "The rain in Spain"), 2)
+        XCTAssertEqual(Challenges.countChar("i", in: "Mississippi"), 4)
+        XCTAssertEqual(Challenges.countChar("i", in: "Hacking with Swift"), 3)
+        XCTAssertEqual(Challenges.countChar("z", in: "Hacking with Swift"), 0)
     }
 
 }
