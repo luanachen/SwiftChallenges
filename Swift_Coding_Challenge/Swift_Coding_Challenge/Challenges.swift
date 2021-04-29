@@ -73,6 +73,42 @@ extension Challenges {
         }
         return String(result)
     }
+    
+    // 7 - Condense whitespace
+    static func condenseWhiteSpace(_ str: String) -> String {
+//        var result = ""
+//        var seenSpace = false
+//
+//        if !str.contains(" ") { return str }
+//
+//        for char in str {
+//            if char == " " {
+//                if seenSpace == false {
+//                    result.append(char)
+//                    seenSpace = true
+//                }
+//            } else {
+//                seenSpace = false
+//                result.append(char)
+//            }
+//        }
+//
+//        return result
+        
+        return str.replacingOccurrences(of: " +", with: " ", options: .regularExpression, range: nil)
+        //  “[space]+” means “match one or more spaces”, so that will cause all multiple spaces to be replaced with a single space
+    }
+    
+    // 8 - String is rotated
+    static func isStringRotated(_ str1: String, _ rotated: String) -> Bool {
+        guard str1.count == rotated.count else { return false }
+        
+        // if you write a string twice it must always encapsulate all possible rotations
+        // abcabc
+        let combined = str1 + str1
+        return combined.contains(rotated)
+    }
+    
 }
 
 

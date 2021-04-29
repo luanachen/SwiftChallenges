@@ -66,5 +66,21 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertEqual(Challenges.removeDuplicate("hello"), "helo")
         XCTAssertEqual(Challenges.removeDuplicate("Mississippi"), "Misp")
     }
+    
+    // 7 - Condense whitespace
+    func test_condenseWhiteSpace() {
+        XCTAssertEqual(Challenges.condenseWhiteSpace("a    b    c"), "a b c")
+        XCTAssertEqual(Challenges.condenseWhiteSpace("     a"), " a")
+        XCTAssertEqual(Challenges.condenseWhiteSpace("abc"), "abc")
+    }
+    
+    // 8 - String is rotated
+    func test_isStringRotated() {
+        XCTAssertTrue(Challenges.isStringRotated("abcde", "eabcd"))
+        XCTAssertTrue(Challenges.isStringRotated("abcde", "cdeab"))
+        XCTAssertFalse(Challenges.isStringRotated("abcde", "abced"))
+        XCTAssertFalse(Challenges.isStringRotated("abc", "a"))
+        XCTAssertFalse(Challenges.isStringRotated("swift", "tswi"))
+    }
 
 }
