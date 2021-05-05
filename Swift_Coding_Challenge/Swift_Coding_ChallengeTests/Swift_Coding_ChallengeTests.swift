@@ -9,9 +9,9 @@ import XCTest
 @testable import Swift_Coding_Challenge
 
 class Swift_Coding_ChallengeTests: XCTestCase {
-
+    
     // ------- STRINGS ------- //
-
+    
     // 1 - UNIQUE LETTERS
     func test_uniqueLetters() {
         XCTAssertTrue(Challenges.hasUniqueLetters("no duplicates"))
@@ -19,14 +19,14 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertTrue(Challenges.hasUniqueLetters("AaBbCc"))
         XCTAssertFalse(Challenges.hasUniqueLetters("Hello, world"))
     }
-
+    
     func test_hasUniqueLettersWithSet() {
         XCTAssertTrue(Challenges.hasUniqueLettersWithSet("no duplicates"))
         XCTAssertTrue(Challenges.hasUniqueLettersWithSet("abcdefghijklmnopqrstuvwxyz"))
         XCTAssertTrue(Challenges.hasUniqueLettersWithSet("AaBbCc"))
         XCTAssertFalse(Challenges.hasUniqueLettersWithSet("Hello, world"))
     }
-
+    
     // 2 - PALINDROME
     func test_isPalindrome() {
         XCTAssertTrue(Challenges.isPalindrome("rotator"))
@@ -34,7 +34,7 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertFalse(Challenges.isPalindrome("Never odd or even"))
         XCTAssertFalse(Challenges.isPalindrome("Hello, world"))
     }
-
+    
     // 3 - Do two strings contain the same characters?
     func test_hasSameChars() {
         XCTAssertTrue(Challenges.hasSameChars("abca", "abca"))
@@ -44,14 +44,14 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertFalse(Challenges.hasSameChars("abc", "Abc"))
         XCTAssertFalse(Challenges.hasSameChars("abc", "cbAa"))
     }
-
+    
     // 4 - Does one string contain another?
     func test_fuzzContains() {
         XCTAssertTrue("Hello, world".fuzzyContains("Hello"))
         XCTAssertTrue("Hello, world".fuzzyContains("WORLD"))
         XCTAssertFalse("Hello, world".fuzzyContains("Goodbye"))
     }
-
+    
     // 5 - Count the characters
     func test_countChar() {
         XCTAssertEqual(Challenges.countChar("a", in: "The rain in Spain"), 2)
@@ -82,5 +82,56 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertFalse(Challenges.isStringRotated("abc", "a"))
         XCTAssertFalse(Challenges.isStringRotated("swift", "tswi"))
     }
-
+    
+    // 9 - Find pangrams
+    func test_isPangram() {
+        XCTAssertTrue(Challenges.isPangram("The quick brown fox jumps over the lazy dog"))
+        XCTAssertFalse(Challenges.isPangram("The quick brown fox jumped over the lazy dog"))
+    }
+    
+    // 10 - Vowels and consonants
+    func test_countVowelsAndConsonants() {
+        XCTAssertTrue(Challenges.countVowelsAndConsonants("Swift Coding Challenges") == (6, 15))
+        XCTAssertTrue(Challenges.countVowelsAndConsonants("Mississippi") == (4, 7))
+    }
+    
+    // 11 - Three different letters
+    func test_isSimilar() {
+        XCTAssertTrue(Challenges.isSimilar("Clamp", "Cramp"))
+        XCTAssertTrue(Challenges.isSimilar("Clamp", "Crams"))
+        XCTAssertTrue(Challenges.isSimilar("Clamp", "Grams"))
+        XCTAssertFalse(Challenges.isSimilar("Clamp", "Grans"))
+        XCTAssertFalse(Challenges.isSimilar("Clamp", "Clam"))
+        XCTAssertFalse(Challenges.isSimilar("Clamp", "maple"))
+    }
+    
+    // 12 - Find longest prefix
+    func test_longestPrefix() {
+        XCTAssertEqual(Challenges.longestPrefix("swift switch swill swim"), "swi")
+        XCTAssertEqual(Challenges.longestPrefix("flip flap flop"), "fl")
+    }
+    
+    // 13 - Run-length encoding
+    func test_runLengthEncoding() {
+        XCTAssertEqual(Challenges.runLengthEncoding("aabbcc"), "a2b2c2")
+        XCTAssertEqual(Challenges.runLengthEncoding("aaabaaabaaa"), "a3b1a3b1a3")
+        XCTAssertEqual(Challenges.runLengthEncoding("aaAAaa"), "a2A2a2")
+    }
+    
+    // 14 - String permutations
+    func test_stringPermutation() {
+        Challenges.stringPermutation("ab")
+    }
+    
+    // 15 - Reverse the words in a string
+    func test_reverseWords() {
+        XCTAssertEqual(Challenges.reverseWords("Swift Coding Challenges"), "tfiwS gnidoC segnellahC")
+        XCTAssertEqual(Challenges.reverseWords("The quick brown fox"), "ehT kciuq nworb xof")
+    }
+    
+    // 16 - Fizz Buzz
+    func test_fizzBuzz() {
+        Challenges.fizzBuzz()
+    }
+    
 }
