@@ -134,4 +134,35 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         Challenges.fizzBuzz()
     }
     
+    // 17 - Generate a random number in a range
+    func test_generateRandomNumber() {
+        Challenges.generateRandomNumber(5, 10)
+        print("*********")
+        Challenges.generateRandomNumber(1, 3)
+        print("*********")
+        Challenges.generateRandomNumber(0, 5)
+        print("*********")
+        Challenges.generateRandomNumber(12, 12)
+    }
+    
+    // 18 - Recreate the pow() function
+    func test_myPow() {
+        XCTAssertEqual(Challenges.myPow(4, 3), 64)
+        XCTAssertEqual(Challenges.myPow(2, 8), 256)
+    }
+    
+    // 19 - Swap two numbers
+    func test_swapTwoNumbers() {
+        XCTAssertTrue(Challenges.swapTwoNumbers((1, 2)) == (2, 1))
+    }
+    
+    // 20 - Number is prime
+    func test_numberIsPrime() {
+        XCTAssertTrue(Challenges.numberIsPrime(11))
+        XCTAssertTrue(Challenges.numberIsPrime(13))
+        XCTAssertFalse(Challenges.numberIsPrime(4))
+        XCTAssertFalse(Challenges.numberIsPrime(9))
+        XCTAssertTrue(Challenges.numberIsPrime(16777259))
+    }
+    
 }

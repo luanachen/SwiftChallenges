@@ -158,7 +158,7 @@ extension Challenges {
         return true
     }
     
-    // 12 - Find longest prefix
+    // 12 - Find longest prefix *
     static func longestPrefix(_ input: String) -> String {
         let array = input.components(separatedBy: " ")
         guard let first = array.first else { return "" }
@@ -237,6 +237,56 @@ extension Challenges {
                 print("\(i)")
             }
         }
+    }
+    
+    // 17 - Generate a random number in a range
+    static func generateRandomNumber(_ min: Int, _ max: Int){
+        print(Int(arc4random_uniform(UInt32(max - min + 1))) + min)
+    }
+    
+    // 18 - Recreate the pow() function
+    static func myPow(_ input: Int, _ power: Int) -> Int {
+//        return Int(pow(Double(input), Double(power)))
+        guard input > 0, power > 0 else { return 0 }
+        var result = input
+        
+        for _ in 1..<power {
+            result *= input
+        }
+        
+        return result
+    }
+    
+    // 19 - Swap two numbers
+    static func swapTwoNumbers(_ input: (Int, Int)) -> (Int, Int) {
+        return (input.1, input.0)
+    }
+    
+    // 20 - Number is prime
+    static func numberIsPrime(_ input: Int) -> Bool {
+//        guard input >= 2 else { return false }
+//
+//        for i in 2..<input {
+//            if input % i == 0 {
+//                return false
+//            }
+//        }
+//
+//        return true
+        
+        // efective way to deal with large numbers
+        guard input >= 2 else { return false }
+        guard input != 2 else { return true }
+        
+        let max = Int(ceil(sqrt(Double(input))))
+        
+        for i in 2 ... max {
+            if input % i == 0 {
+                return false
+            }
+        }
+        
+        return true
     }
     
 }
