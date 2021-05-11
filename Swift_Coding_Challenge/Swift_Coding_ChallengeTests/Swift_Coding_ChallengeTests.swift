@@ -165,4 +165,17 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertTrue(Challenges.numberIsPrime(16777259))
     }
     
+    // 21 - Counting binary ones
+    func test_challenge21() {
+        XCTAssertTrue(Challenges.challenge21(12) == (17, 10))
+        XCTAssertTrue(Challenges.challenge21(28) == (35, 26))
+    }
+    
+    // 22 - Binary reverse
+    func test_binaryReverse() {
+        XCTAssertEqual(Challenges.binaryReverse(32), 4)
+        XCTAssertEqual(Challenges.binaryReverse(41), 148)
+        XCTAssertEqual(Challenges.binaryReverse(148), 41)
+    }
+    
 }

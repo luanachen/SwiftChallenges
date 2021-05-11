@@ -289,6 +289,48 @@ extension Challenges {
         return true
     }
     
+    // 21 - Counting binary ones
+    // Create a function that accepts any positive integer and returns the next highest and next lowest number that has the same number of ones in its binary representation. If either number is not possible, return nil for it.
+    static func challenge21(_ input: Int) -> (nextHighest: Int?, nextLowest: Int?) {
+        
+        let inputBinary = String(input, radix: 2)
+        let targetOnes = inputBinary.filter { $0 == "1" }.count
+        var nextHighest: Int? = nil
+        var nextLowest: Int? = nil
+        
+        for i in input + 1 ... Int.max {
+            let currentBinary = String(i, radix: 2)
+            let currentOnes = currentBinary.filter { $0 == "1" }.count
+            
+            if targetOnes == currentOnes {
+                nextHighest = i
+                break
+            }
+        }
+        
+        for i in (0..<input).reversed() {
+            let currentBinary = String(i, radix: 2)
+            let currentOnes = currentBinary.filter { $0 == "1" }.count
+            
+            if targetOnes == currentOnes {
+                nextLowest = i
+                break
+            }
+        }
+        
+        return (nextHighest, nextLowest)
+    }
+    
+    // 22 - Binary reverse
+    static func binaryReverse(_ input: Int) -> Int {
+        let inputBinary = String(input, radix: 2)
+        let paddingAmount = 8 - inputBinary.count
+        
+        let paddedBinary = String(repeating: "0", count: paddingAmount) + inputBinary
+        let reversed = String(paddedBinary.reversed())
+        
+        return Int(reversed, radix: 2) ?? 0
+    }
 }
 
 
