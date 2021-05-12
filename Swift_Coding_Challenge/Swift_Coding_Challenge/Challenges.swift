@@ -196,7 +196,7 @@ extension Challenges {
         }
         
         result = result + String(currentChar) + String(currentCharCount)
-                
+        
         return result
     }
     
@@ -246,7 +246,7 @@ extension Challenges {
     
     // 18 - Recreate the pow() function
     static func myPow(_ input: Int, _ power: Int) -> Int {
-//        return Int(pow(Double(input), Double(power)))
+        //        return Int(pow(Double(input), Double(power)))
         guard input > 0, power > 0 else { return 0 }
         var result = input
         
@@ -264,15 +264,15 @@ extension Challenges {
     
     // 20 - Number is prime
     static func numberIsPrime(_ input: Int) -> Bool {
-//        guard input >= 2 else { return false }
-//
-//        for i in 2..<input {
-//            if input % i == 0 {
-//                return false
-//            }
-//        }
-//
-//        return true
+        //        guard input >= 2 else { return false }
+        //
+        //        for i in 2..<input {
+        //            if input % i == 0 {
+        //                return false
+        //            }
+        //        }
+        //
+        //        return true
         
         // efective way to deal with large numbers
         guard input >= 2 else { return false }
@@ -330,6 +330,31 @@ extension Challenges {
         let reversed = String(paddedBinary.reversed())
         
         return Int(reversed, radix: 2) ?? 0
+    }
+    
+    // 23 - Integer disguised as string
+    static func isStringInt(_ input: String) -> Bool {
+        //        return UInt64(input) != nil
+        return input.rangeOfCharacter(from: CharacterSet(charactersIn: "0123456789").inverted) == nil
+    }
+    
+    // 24 - Add numbers inside a string *
+    static func addNumbersOfString(_ input: String) -> Int {
+        var currentNumberString = ""
+        var sum = 0
+        
+        for char in input {
+            if Int(String(char)) != nil {
+                currentNumberString += String(char)
+            } else {
+                sum += Int(currentNumberString) ?? 0
+                currentNumberString = ""
+            }
+        }
+        
+        sum += Int(currentNumberString) ?? 0
+        
+        return sum
     }
 }
 

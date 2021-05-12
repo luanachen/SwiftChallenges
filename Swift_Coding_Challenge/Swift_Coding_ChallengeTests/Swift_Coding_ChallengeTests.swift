@@ -178,4 +178,19 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertEqual(Challenges.binaryReverse(148), 41)
     }
     
+    // 23 - Integer disguised as string
+    func test_isStringInt() {
+        XCTAssertTrue(Challenges.isStringInt("01010101"))
+        XCTAssertTrue(Challenges.isStringInt("123456789"))
+        XCTAssertTrue(Challenges.isStringInt("9223372036854775808"))
+        XCTAssertFalse(Challenges.isStringInt("1.01"))
+    }
+    
+    // 24 - Add numbers inside a string
+    func test_addNumbersOfString() {
+        XCTAssertEqual(Challenges.addNumbersOfString("a1b2c3"), 6)
+        XCTAssertEqual(Challenges.addNumbersOfString("a10b20c30"), 60)
+        XCTAssertEqual(Challenges.addNumbersOfString("h8ers"), 8)
+    }
+    
 }
