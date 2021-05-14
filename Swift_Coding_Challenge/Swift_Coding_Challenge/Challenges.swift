@@ -10,7 +10,7 @@ import Foundation
 
 class Challenges {
     
-    // ------- CHAPTER 1 - STRINGS ------- //
+    // MARK: ------- CHAPTER 1 - STRINGS ------- //
     
     // 1 - UNIQUE LETTERS
     static func hasUniqueLetters(_ string: String) -> Bool {
@@ -222,7 +222,7 @@ extension Challenges {
         return String(result)
     }
     
-    // ------- CHAPTER 2 - NUMBERS ------- //
+    // MARK: ------- CHAPTER 2 - NUMBERS ------- //
     
     // 16 - Fizz Buzz
     static func fizzBuzz() {
@@ -356,6 +356,37 @@ extension Challenges {
         
         return sum
     }
+    
+    // 25 - Calculate a square root by hand
+    static func mySqrt(_ input: Int) -> Int {
+        //        var result = 0
+        //        for number in 0..<input {
+        //            if number * number == input {
+        //                result = number
+        //            }
+        //        }
+        //        return result
+        return Int(floor(pow(Double(input), 0.5)))
+    }
+    
+    // 26 - Subtract without subtract
+    static func mySubstract(subtract input1: Int, from input2: Int) -> Int {
+        return (-input1 + input2)
+    }
+    
+    // MARK: ------- CHAPTER 3 - FILES ------- //
+    
+    // 27 - Print last lines **
+    static func printLastLines(_ input: String, lines N: Int) {
+        var inputArray = input.components(separatedBy: "\n")
+        inputArray.reverse()
+                
+        for i in 0 ..< min(inputArray.count, N) {
+            print(inputArray[i])
+        }
+    }
+    
+    // 28 - Log a message
 }
 
 

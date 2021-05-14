@@ -10,7 +10,7 @@ import XCTest
 
 class Swift_Coding_ChallengeTests: XCTestCase {
     
-    // ------- STRINGS ------- //
+    // MARK: ------- STRINGS ------- //
     
     // 1 - UNIQUE LETTERS
     func test_uniqueLetters() {
@@ -129,6 +129,8 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertEqual(Challenges.reverseWords("The quick brown fox"), "ehT kciuq nworb xof")
     }
     
+    // MARK: ------- CHAPTER 2 - NUMBERS ------- //
+    
     // 16 - Fizz Buzz
     func test_fizzBuzz() {
         Challenges.fizzBuzz()
@@ -191,6 +193,41 @@ class Swift_Coding_ChallengeTests: XCTestCase {
         XCTAssertEqual(Challenges.addNumbersOfString("a1b2c3"), 6)
         XCTAssertEqual(Challenges.addNumbersOfString("a10b20c30"), 60)
         XCTAssertEqual(Challenges.addNumbersOfString("h8ers"), 8)
+    }
+    
+    // 25 - Calculate a square root by hand
+    func test_mySqrt() {
+        XCTAssertEqual(Challenges.mySqrt(9), 3)
+        XCTAssertEqual(Challenges.mySqrt(15), 3)
+        XCTAssertEqual(Challenges.mySqrt(16777216), 4096)
+        XCTAssertEqual(Challenges.mySqrt(16), 4)
+    }
+    
+    // 26 - Subtract without subtract
+    func test_mySubstract() {
+        XCTAssertEqual(Challenges.mySubstract(subtract: 5, from: 9), 4)
+        XCTAssertEqual(Challenges.mySubstract(subtract: 10, from: 30), 20)
+    }
+    
+    // MARK: ------- CHAPTER 3 - FILES ------- //
+    
+    // 27 - Print last lines
+    func test_printLastLines() {
+        let file = """
+Antony And Cleopatra
+Coriolanus
+Cymbeline
+Hamlet
+Julius Caesar
+King Lear
+Macbeth
+Othello
+Twelfth Night
+"""
+        
+        Challenges.printLastLines(file, lines: 3)
+//        Challenges.printLastLines(file, lines: 100)
+//        Challenges.printLastLines(file, lines: 0)
     }
     
 }
