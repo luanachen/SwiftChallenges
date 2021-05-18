@@ -226,8 +226,24 @@ Twelfth Night
 """
         
         Challenges.printLastLines(file, lines: 3)
-//        Challenges.printLastLines(file, lines: 100)
-//        Challenges.printLastLines(file, lines: 0)
+        //        Challenges.printLastLines(file, lines: 100)
+        //        Challenges.printLastLines(file, lines: 0)
+    }
+    
+    // 28 - Log a message
+    func test_logAMessage() {
+        Challenges.logAMessage("myPath", logMessage: "my message")
+    }
+    
+    // 29 - Documents directory
+    func test_myDocDirectory() {
+        XCTAssertNotNil(Challenges.myDocDirectory().absoluteString)
+    }
+    
+    // 30 - New JPEGs
+    func test_newJPEGs() {
+        let files = Challenges.newJPEGs("")
+        print(files)
     }
     
 }

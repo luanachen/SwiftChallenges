@@ -380,13 +380,53 @@ extension Challenges {
     static func printLastLines(_ input: String, lines N: Int) {
         var inputArray = input.components(separatedBy: "\n")
         inputArray.reverse()
-                
+        
         for i in 0 ..< min(inputArray.count, N) {
             print(inputArray[i])
         }
     }
     
     // 28 - Log a message
+    // Write a logging function that accepts accepts a path to a log file on disk as well as a new log message. Your function should open the log file (or create it if it does not already exist), then append the new message to the log along with the current time and date.
+    static func logAMessage(_ path: String, logMessage: String) {
+        var existingLog = (try? String(contentsOfFile: path)) ?? ""
+        
+        existingLog += "\(Date()): \(logMessage)"
+        
+        do {
+            try existingLog.write(toFile: path, atomically: true, encoding: .utf8)
+        } catch {
+            print("Failed to write to log: \(error.localizedDescription)")
+        }
+    }
+    
+    // 29 - Documents directory
+    static func myDocDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    // 30 - New JPEGs
+    static func newJPEGs(_ directory: String) -> [String] {
+        let fm = FileManager.default
+        let directoryURL = URL(fileURLWithPath: directory)
+        
+        guard let files = try? fm.contentsOfDirectory(at: directoryURL,
+                                                      includingPropertiesForKeys: nil) else { return [] }
+        
+        var jpegs = [String]()
+        
+        for file in files {
+            if file.pathExtension == "jpg" || file.pathExtension == "jpeg" {
+                guard let attributes = try? fm.attributesOfItem(atPath: file.path) else { continue }
+                guard let creationDate = attributes[.creationDate] as? Date else { continue }
+                if creationDate > Date(timeIntervalSinceNow: -60 * 60 * 48) {
+                    jpegs.append(file.lastPathComponent)
+                }
+            }
+        }
+        return jpegs
+    }
 }
 
 
