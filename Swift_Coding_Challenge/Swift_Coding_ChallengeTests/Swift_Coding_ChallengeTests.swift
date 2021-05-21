@@ -246,4 +246,39 @@ Twelfth Night
         print(files)
     }
     
+    // 31 - Copy recursively
+    func test_CopyRecursively() {
+        XCTAssertFalse(Challenges.copyRecursively(source: "", destination: ""))
+    }
+    
+    // 32 - Word frequency
+    func test_wordFrequency() {
+        XCTAssertEqual(Challenges.wordFrequency(filename: "", count: "a"), 0)
+    }
+    
+    // 33 - Find duplicate filenames
+    func test_findDuplicate() {
+       XCTAssertNil(Challenges.findDuplicate(directory: ""))
+    }
+    
+    // TODO: 34 - 36
+    
+    // MARK: ------- CHAPTER 4 - Collections ------- //
+    
+    // 37 - Count the numbers
+    func test_countTheNumbers() {
+        XCTAssertEqual([5, 15, 55, 515].countTheNumbers(count: "5"), 6)
+        XCTAssertEqual([5, 15, 55, 515].countTheNumbers(count: "1"), 2)
+        XCTAssertEqual([55555].countTheNumbers(count: "5"), 5)
+        XCTAssertEqual([55555].countTheNumbers(count: "1"), 0)
+    }
+    
+    // 38 - Find N smallest
+    func test_smallest() {
+        XCTAssertEqual([1, 2, 3, 4].smallest(count: 3), [1, 2, 3])
+        XCTAssertEqual(["q", "f", "k"].smallest(count: 10), ["f", "k", "q"])
+        XCTAssertEqual([256, 16].smallest(count: 3), [16, 256])
+        XCTAssertEqual([String]().smallest(count: 3), [])
+    }
+    
 }

@@ -427,6 +427,89 @@ extension Challenges {
         }
         return jpegs
     }
+    
+    // 31 - Copy recursively
+    static func copyRecursively(source: String, destination: String) -> Bool {
+        let fm = FileManager.default
+        var isDirectory: ObjCBool = false
+        
+        guard fm.fileExists(atPath: source, isDirectory: &isDirectory) ||
+                isDirectory.boolValue == false else { return false }
+        
+        let sourceURL = URL(fileURLWithPath: source)
+        let destionatoinURL = URL(fileURLWithPath: destination)
+        
+        do {
+            try fm.copyItem(at: sourceURL, to: destionatoinURL)
+        } catch {
+            print("Copy failed: \(error.localizedDescription)")
+            return false
+        }
+        
+        return true
+    }
+    
+    // 32 - Word frequency
+    static func wordFrequency(filename: String, count: String) -> Int {
+        guard let inputString = try? String(contentsOfFile: filename) else { return 0 }
+        var nonLetters = CharacterSet.letters.inverted
+        nonLetters.remove("'")
+        
+        let allWords = inputString.components(separatedBy: nonLetters)
+        let wordSet = NSCountedSet(array: allWords)
+    
+        return wordSet.count(for: count)
+    }
+    
+    // 33 - Find duplicate filenames
+    static func findDuplicate(directory: String) -> [String] {
+        let fm = FileManager.default
+        let directoryUrl = URL(fileURLWithPath: directory)
+        
+        guard let files = fm.enumerator(at: directoryUrl,
+                                        includingPropertiesForKeys: nil) else { return [] }
+        
+        var duplicates = Set<String>()
+        var seen = Set<String>()
+        
+        for case let file as URL in files {
+            guard file.hasDirectoryPath == false else { continue }
+            
+            let filename = file.lastPathComponent
+            
+            if seen.contains(filename) {
+                duplicates.insert(filename)
+            } else {
+                seen.insert(filename)
+            }
+        }
+        
+        return Array(duplicates)
+    }
+    
+    
+    // TODO: 34 - 36
+    
+    // MARK: ------- CHAPTER 4 - Collections ------- //
+}
+
+extension Collection where Iterator.Element == Int {
+    
+    // 37 - Count the numbers
+    func countTheNumbers(count: Character) -> Int {
+        return self.reduce(0) {
+            $0 + String($1).filter { char in char == count }.count
+        }
+    }
+}
+
+extension Collection where Iterator.Element: Comparable {
+    
+    // 38 - Find N smallest
+    func smallest(count: Int) -> [Iterator.Element] {
+        let sorted = self.sorted()
+        return Array(sorted.prefix(count))
+    }
 }
 
 
