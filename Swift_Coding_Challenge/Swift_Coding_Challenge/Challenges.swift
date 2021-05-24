@@ -512,6 +512,28 @@ extension Collection where Iterator.Element: Comparable {
     }
 }
 
+extension Collection where Iterator.Element == String {
+    
+    // 39 - Sort a string array by length
+    func sortByLength() -> [String] {
+        return self.sorted { $0.count > $1.count }
+    }
+}
+
+extension Challenges {
+    
+    // [1, 2, 3]
+    // [1, 3]
+    
+    // 40 - Missing numbers in array
+    static func missingNumbers(_ input: [Int]) -> [Int] {
+        let inputSet = Set(input)
+        let correctSet = Set(1...100)
+        
+        return Array(correctSet.subtracting(inputSet)).sorted()
+    }
+}
+
 
 //-----------------------------------------------------------------//
 

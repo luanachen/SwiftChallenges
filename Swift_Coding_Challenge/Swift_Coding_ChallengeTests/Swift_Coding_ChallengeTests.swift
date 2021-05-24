@@ -281,4 +281,21 @@ Twelfth Night
         XCTAssertEqual([String]().smallest(count: 3), [])
     }
     
+    // 39 - Sort a string array by length
+    func test_sorteByLength() {
+        XCTAssertEqual(["a", "abc", "ab"].sortByLength(), ["abc", "ab", "a"])
+        XCTAssertEqual(["paul", "taylor", "adele"].sortByLength(), ["taylor", "adele", "paul"])
+        XCTAssertEqual([String]().sortByLength(), [])
+    }
+    
+    // 40 - Missing numbers in array
+    func test_missingNumbers() {
+        var correctArray = Array(1...100)
+        correctArray.remove(at: 25)
+        correctArray.remove(at: 20)
+        correctArray.remove(at: 6)
+        XCTAssertEqual(Challenges.missingNumbers(correctArray), [7, 21, 26])
+    }
+    
+    
 }
