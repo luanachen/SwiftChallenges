@@ -532,8 +532,46 @@ extension Challenges {
         
         return Array(correctSet.subtracting(inputSet)).sorted()
     }
+    
+    
+    // Codility
+    // given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
+    static func solution(_ A : [Int]) -> Int {
+        let last = A.sorted().last ?? 0
+        guard last > 0 else { return 1 }
+        let correctSet = Set(1...last)
+        let missingNum = correctSet.subtracting(Set(A)).sorted()
+        return missingNum.first ?? last + 1
+    }
 }
 
+extension Collection where Iterator.Element == Int {
+    // 41 - Find the median
+    func median() -> Double? {
+        guard self.count > 0 else { return nil }
+        let sorted = self.sorted()
+        let middle = sorted.count/2
+        
+        if sorted.count % 2 == 0 {
+            return Double(sorted[middle] + sorted[middle - 1]) / 2
+        } else {
+            return Double(sorted[middle])
+        }
+    }
+}
+
+extension Collection where Iterator.Element: Comparable {
+ 
+    // 42 - Recreate index(of:)
+    func myIndexOf(search: Int) -> Iterator.Element? {
+        for (index, item) in self.enumerated() {
+            if index == search {
+                return item
+            }
+        }
+        return nil
+    }
+}
 
 //-----------------------------------------------------------------//
 

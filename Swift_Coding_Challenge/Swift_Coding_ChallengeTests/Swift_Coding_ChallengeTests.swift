@@ -298,4 +298,22 @@ Twelfth Night
     }
     
     
+    func test_codility() {
+        XCTAssertEqual(Challenges.solution([1, 3, 6, 4, 1, 2]), 5)
+        XCTAssertEqual(Challenges.solution([1, 2, 3]), 4)
+        XCTAssertEqual(Challenges.solution([-1, -3]), 1)
+    }
+    
+    func test_median() {
+        XCTAssertEqual([1, 3, 5, 7, 9].median(), 5)
+        XCTAssertEqual([1, 2, 3, 4].median(), 2.5)
+        XCTAssertEqual([1, 2, 3].median(), 2)
+        XCTAssertNil([Int]().median())
+    }
+    
+    func test_myIndexOf() {
+        XCTAssertEqual([1, 3, 5, 7, 9].myIndexOf(search: 1), 3)
+        XCTAssertEqual([1, 3, 5, 7, 9].myIndexOf(search: 9), nil)
+    }
+    
 }
