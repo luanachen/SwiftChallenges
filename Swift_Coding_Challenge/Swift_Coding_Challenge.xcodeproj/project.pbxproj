@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FCE4FE5265E8F0200F212EB /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE4FE4265E8F0200F212EB /* LinkedList.swift */; };
 		EB3A4407262F1008008CD32B /* Swift_Coding_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3A4406262F1008008CD32B /* Swift_Coding_ChallengeApp.swift */; };
 		EB3A4409262F1008008CD32B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3A4408262F1008008CD32B /* ContentView.swift */; };
 		EB3A440B262F100B008CD32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3A440A262F100B008CD32B /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FCE4FE4265E8F0200F212EB /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		EB3A4403262F1008008CD32B /* Swift_Coding_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift_Coding_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3A4406262F1008008CD32B /* Swift_Coding_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Coding_ChallengeApp.swift; sourceTree = "<group>"; };
 		EB3A4408262F1008008CD32B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3A4434262F10A8008CD32B /* Challenges.swift */,
+				0FCE4FE4265E8F0200F212EB /* LinkedList.swift */,
 				EB3A4406262F1008008CD32B /* Swift_Coding_ChallengeApp.swift */,
 				EB3A4408262F1008008CD32B /* ContentView.swift */,
 				EB3A440A262F100B008CD32B /* Assets.xcassets */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FCE4FE5265E8F0200F212EB /* LinkedList.swift in Sources */,
 				EB3A4409262F1008008CD32B /* ContentView.swift in Sources */,
 				EB3A4407262F1008008CD32B /* Swift_Coding_ChallengeApp.swift in Sources */,
 				EB3A4435262F10A8008CD32B /* Challenges.swift in Sources */,

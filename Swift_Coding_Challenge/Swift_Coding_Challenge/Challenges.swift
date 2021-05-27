@@ -521,10 +521,6 @@ extension Collection where Iterator.Element == String {
 }
 
 extension Challenges {
-    
-    // [1, 2, 3]
-    // [1, 3]
-    
     // 40 - Missing numbers in array
     static func missingNumbers(_ input: [Int]) -> [Int] {
         let inputSet = Set(input)
@@ -571,6 +567,30 @@ extension Collection where Iterator.Element: Comparable {
         }
         return nil
     }
+}
+
+extension Challenges {
+    // 43 - Linked lists
+    static func linkedAlphabets() {
+        let list = LinkedList<Character>()
+        var previousNode: LinkedListNode<Character>? = nil
+        for letter in "abcdefghijklmnopqrstuvwxyz" {
+            let node = LinkedListNode(value: letter)
+            if let predecessor = previousNode {
+                predecessor.next = node
+            } else {
+                list.start = node
+            }
+            previousNode = node
+        }
+        list.printNodes()
+    }
+    
+    // 44 - Linked list mid-point
+    static func linkedListMidPoint<T>(list: LinkedList<T>) -> T? {
+        return list.middle()
+    }
+    
 }
 
 //-----------------------------------------------------------------//

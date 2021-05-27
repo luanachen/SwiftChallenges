@@ -297,13 +297,14 @@ Twelfth Night
         XCTAssertEqual(Challenges.missingNumbers(correctArray), [7, 21, 26])
     }
     
-    
+    // Codility
     func test_codility() {
         XCTAssertEqual(Challenges.solution([1, 3, 6, 4, 1, 2]), 5)
         XCTAssertEqual(Challenges.solution([1, 2, 3]), 4)
         XCTAssertEqual(Challenges.solution([-1, -3]), 1)
     }
     
+    // 41 - Find the median
     func test_median() {
         XCTAssertEqual([1, 3, 5, 7, 9].median(), 5)
         XCTAssertEqual([1, 2, 3, 4].median(), 2.5)
@@ -311,9 +312,47 @@ Twelfth Night
         XCTAssertNil([Int]().median())
     }
     
+    // 42 - Recreate index(of:)
     func test_myIndexOf() {
         XCTAssertEqual([1, 3, 5, 7, 9].myIndexOf(search: 1), 3)
         XCTAssertEqual([1, 3, 5, 7, 9].myIndexOf(search: 9), nil)
     }
     
+    // 43 - Linked lists
+    func test_linkedAlphabets() {
+        Challenges.linkedAlphabets()
+    }
+    
+    // 44 - Linked list mid-point
+    func test_linkedListMiddlePoint() {
+        let list = LinkedList<Int>()
+        list.start = LinkedListNode(value: 1)
+        list.start?.next = LinkedListNode(value: 2)
+        list.start?.next?.next = LinkedListNode(value: 3)
+        list.start?.next?.next?.next = LinkedListNode(value: 4)
+        list.start?.next?.next?.next?.next = LinkedListNode(value: 5)
+        
+        XCTAssertEqual(Challenges.linkedListMidPoint(list: list), 3)
+    }
+    
+    // TODO 45 - Traversing the tree
+}
+
+extension Collection {
+    // 46 - Recreate map() **
+    
+    //    add a generic method that accepts a closure operating on
+    //    our element type and returns a new type, with the whole method
+    //    returning an array of that type
+    
+    // throws means only that it might throw, not that it will throw, and marking the whole thing as rethrows means it need be used with try/catch only when its parameter really does throw.
+    func myMap<T>(_ transform: (Iterator.Element) throws -> T) rethrows -> [T] {
+        var returnValue = [T]()
+        
+        for item in self {
+            returnValue.append(try transform(item))
+        }
+        
+        return returnValue
+    }
 }
