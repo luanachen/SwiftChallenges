@@ -533,11 +533,13 @@ extension Challenges {
     // Codility
     // given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
     static func solution(_ A : [Int]) -> Int {
-        let last = A.sorted().last ?? 0
-        guard last > 0 else { return 1 }
-        let correctSet = Set(1...last)
-        let missingNum = correctSet.subtracting(Set(A)).sorted()
-        return missingNum.first ?? last + 1
+        let sortedInput = A.sorted()
+        guard let max = sortedInput.last, max > 0 else { return 1 }
+        let correctInput = Array(1...max)
+        
+        let diffs = Set(correctInput).subtracting(sortedInput)
+        
+        return diffs.sorted().first ?? max + 1
     }
 }
 
@@ -590,7 +592,77 @@ extension Challenges {
     static func linkedListMidPoint<T>(list: LinkedList<T>) -> T? {
         return list.middle()
     }
+}
+
+extension Collection {
+    // 46 - Recreate map() **
     
+    //    add a generic method that accepts a closure operating on
+    //    our element type and returns a new type, with the whole method
+    //    returning an array of that type
+    
+    // throws means only that it might throw, not that it will throw, and marking the whole thing as rethrows means it need be used with try/catch only when its parameter really does throw.
+    func myMap<T>(_ transform: (Iterator.Element) throws -> T) rethrows -> [T] {
+        var returnValue = [T]()
+        
+        for item in self {
+            returnValue.append(try transform(item))
+        }
+        
+        return returnValue
+    }
+}
+
+extension Collection where Iterator.Element: Comparable {
+    // 47 - Recreate min()
+    func myMin() -> Iterator.Element? {
+        return self.sorted().first
+    }
+}
+
+extension Challenges {
+    // TODO: 48: Implement a deque data structure
+
+    
+    // 49 - Sum the even repeats
+    // (5, 5, 5, 12, 12)
+    static func mySumEvenRepeats(_ input: Int...) -> Int {
+        let sortedInput = input.sorted()
+        var currentNum = [Int]()
+        var evens = [Int]()
+
+        for num in sortedInput {
+            if num != currentNum.first {
+                if let num = currentNum.first, currentNum.count % 2 == 0 {
+                    evens.append(num)
+                }
+                currentNum = []
+                currentNum.append(num)
+            } else {
+                currentNum.append(num)
+            }
+        }
+        
+        if let num = currentNum.first, currentNum.count % 2 == 0 {
+            evens.append(num)
+        }
+        
+        return evens.reduce(0, +)
+    }
+    
+    // Using NSCountedSet, muuuch easier ***
+    static func sumEvenRepeats(_ input: Int...) -> Int {
+        let countedSet = NSCountedSet(array: input)
+        var sum = 0
+        
+        for case let item as Int in countedSet {
+            if countedSet.count(for: item) % 2 == 0 {
+                sum += item
+            }
+        }
+        
+        return sum
+    }
 }
 
 //-----------------------------------------------------------------//

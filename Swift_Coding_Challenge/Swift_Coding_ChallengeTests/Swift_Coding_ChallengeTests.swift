@@ -336,23 +336,27 @@ Twelfth Night
     }
     
     // TODO 45 - Traversing the tree
-}
-
-extension Collection {
+    
     // 46 - Recreate map() **
+    func test_myMap() {
+        XCTAssertEqual([1, 2, 3].myMap { String($0)}, ["1", "2", "3"])
+    }
     
-    //    add a generic method that accepts a closure operating on
-    //    our element type and returns a new type, with the whole method
-    //    returning an array of that type
+    // 47 - Recreate min()
+    func test_myMin() {
+        XCTAssertEqual([1, 2, 3].myMin(), 1)
+        XCTAssertEqual(["q", "f", "k"].myMin(), "f")
+        XCTAssertEqual([4096, 256, 16].myMin(), 16)
+        XCTAssertEqual([String]().myMin(), nil)
+    }
     
-    // throws means only that it might throw, not that it will throw, and marking the whole thing as rethrows means it need be used with try/catch only when its parameter really does throw.
-    func myMap<T>(_ transform: (Iterator.Element) throws -> T) rethrows -> [T] {
-        var returnValue = [T]()
-        
-        for item in self {
-            returnValue.append(try transform(item))
-        }
-        
-        return returnValue
+    // TODO: 48: Implement a deque data structure
+
+    
+    // 49 - Sum the even repeats
+    func test_sumEvenRepeats() {
+        XCTAssertEqual(Challenges.sumEvenRepeats(1, 2, 2, 3, 3, 4), 5)
+        XCTAssertEqual(Challenges.sumEvenRepeats(5, 5, 5, 12, 12), 12)
+        XCTAssertEqual(Challenges.sumEvenRepeats(1, 1, 2, 2, 3, 3, 4, 4), 10)
     }
 }
